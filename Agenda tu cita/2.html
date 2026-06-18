@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita - Clínica Sudamericano</title>
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Clínica Sudamericano</div>
+            <ul class="nav-links">
+                <li><a href="../Acerca_De_Nosotros/1.html">Inicio</a></li>
+                <li><a href="../Acerca_De_Nosotros/1.html">Acerca de</a></li>
+                <li><a href="../Acerca_De_Nosotros/1.html#doctores">Doctores</a></li>
+                <li><a href="#agendar">Agendar Cita</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Agendar tu Cita Médica</h1>
+            <p>Programar una consulta es fácil y rápido</p>
+        </div>
+    </section>
+
+    <!-- Sección Principal de Agendamiento -->
+    <section id="agendar" class="booking">
+        <div class="container">
+            <div class="booking-wrapper">
+                <!-- Formulario de Agendamiento -->
+                <div class="booking-form-section">
+                    <h2>Completa tu Reserva</h2>
+                    
+                    <form class="booking-form" id="appointmentForm">
+                        <!-- Paso 1: Seleccionar Doctor/Especialidad -->
+                        <div class="form-step">
+                            <h3>Paso 1: Selecciona Doctor o Especialidad</h3>
+                            
+                            <div class="form-group">
+                                <label for="specialty">Especialidad *</label>
+                                <select id="specialty" name="specialty" required onchange="updateDoctors()">
+                                    <option value="">-- Selecciona una especialidad --</option>
+                                    <option value="general">Medicina General</option>
+                                    <option value="cardio">Cardiología</option>
+                                    <option value="cirugia">Cirugía General</option>
+                                    <option value="pediatria">Pediatría</option>
+                                    <option value="neurologia">Neurología</option>
+                                    <option value="gineco">Ginecología y Obstetricia</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="doctor">Doctor/Doctora *</label>
+                                <select id="doctor" name="doctor" required>
+                                    <option value="">-- Selecciona primero una especialidad --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2: Información del Paciente -->
+                        <div class="form-step">
+                            <h3>Paso 2: Información Personal</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Nombre *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Apellido *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Teléfono *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="rut">RUT/ID *</label>
+                                    <input type="text" id="rut" name="rut" required placeholder="Ej: 12345678-9">
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Edad *</label>
+                                    <input type="number" id="age" name="age" min="1" max="120" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reason">Motivo de la Consulta *</label>
+                                <textarea id="reason" name="reason" rows="3" placeholder="Describe brevemente el motivo de tu consulta" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3: Seleccionar Fecha y Hora -->
+                        <div class="form-step">
+                            <h3>Paso 3: Fecha y Hora</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="appointmentDate">Fecha Preferida *</label>
+                                    <input type="date" id="appointmentDate" name="appointmentDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="appointmentTime">Hora Preferida *</label>
+                                    <select id="appointmentTime" name="appointmentTime" required>
+                                        <option value="">-- Selecciona una hora --</option>
+                                        <option value="08:00">8:00 AM</option>
+                                        <option value="08:30">8:30 AM</option>
+                                        <option value="09:00">9:00 AM</option>
+                                        <option value="09:30">9:30 AM</option>
+                                        <option value="10:00">10:00 AM</option>
+                                        <option value="10:30">10:30 AM</option>
+                                        <option value="11:00">11:00 AM</option>
+                                        <option value="11:30">11:30 AM</option>
+                                        <option value="14:00">2:00 PM</option>
+                                        <option value="14:30">2:30 PM</option>
+                                        <option value="15:00">3:00 PM</option>
+                                        <option value="15:30">3:30 PM</option>
+                                        <option value="16:00">4:00 PM</option>
+                                        <option value="16:30">4:30 PM</option>
+                                        <option value="17:00">5:00 PM</option>
+                                        <option value="17:30">5:30 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="typeConsultation">Tipo de Consulta *</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="typeConsultation" value="presencial" checked>
+                                        Presencial
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="typeConsultation" value="virtual">
+                                        Virtual (Telemedicina)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paso 4: Confirmación -->
+                        <div class="form-step">
+                            <h3>Paso 4: Confirmación</h3>
+                            
+                            <div class="form-group checkbox">
+                                <label>
+                                    <input type="checkbox" name="terms" required>
+                                    Acepto los términos y condiciones y la política de privacidad
+                                </label>
+                            </div>
+
+                            <div class="form-group checkbox">
+                                <label>
+                                    <input type="checkbox" name="newsletter">
+                                    Deseo recibir notificaciones y recordatorios de citas por email
+                                </label>
+                            </div>
+
+                            <div class="appointment-summary">
+                                <h4>Resumen de tu Cita</h4>
+                                <div id="summaryContent">
+                                    <p>Completa todos los pasos para ver el resumen de tu cita</p>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-large">Confirmar Cita</button>
+                            <button type="reset" class="btn btn-secondary btn-large">Limpiar Formulario</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Panel de Información Lateral -->
+                <div class="info-panel">
+                    <div class="info-card">
+                        <h3>📋 Información Importante</h3>
+                        <ul>
+                            <li>Presenta tu identificación en la cita</li>
+                            <li>Llega 10 minutos antes</li>
+                            <li>Trae todos tus documentos médicos</li>
+                            <li>En caso de cambios, avisa 24 horas antes</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>📞 Contacto Directo</h3>
+                        <p>
+                            <strong>Teléfono:</strong> +56 2 1234 5678<br>
+                            <strong>Emergencia:</strong> +56 2 1234 5679<br>
+                            <strong>Email:</strong> citas@clinica.com
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>⏰ Horarios de Atención</h3>
+                        <p>
+                            Lunes a Viernes: 8:00 - 20:00<br>
+                            Sábado: 9:00 - 14:00<br>
+                            Domingo: Cerrado<br>
+                            Emergencia: 24/7
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>💳 Aceptamos</h3>
+                        <p>
+                            • Efectivo<br>
+                            • Tarjetas de Crédito/Débito<br>
+                            • Transferencia Bancaria<br>
+                            • Seguros Médicos
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Preguntas Frecuentes -->
+    <section class="faq">
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>¿Cuál es el costo de la consulta?</h4>
+                    <p>El costo varía según el doctor y el tipo de consulta. Puedes contactarnos para más información sobre los valores específicos.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>¿Puedo cambiar mi cita después de agendar?</h4>
+                    <p>Sí, puedes cambiar tu cita comunicándote con nosotros al menos 24 horas antes de la fecha programada.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>¿Qué documentos necesito llevar?</h4>
+                    <p>Necesitas tu identificación (RUT/Pasaporte), carnet de afiliado de salud si lo tienes, y cualquier documento médico relevante.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>¿Ofrecen consultas por telemedicina?</h4>
+                    <p>Sí, ofrecemos consultas virtuales. Puedes seleccionar esta opción al momento de agendar tu cita.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>¿Cuánto tiempo dura una consulta?</h4>
+                    <p>Las consultas generalmente duran entre 30 a 45 minutos, dependiendo de la complejidad del caso.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>¿Qué pasa si llego tarde?</h4>
+                    <p>Te recomendamos llegar 10 minutos antes. Si llegas muy tarde, la cita puede ser reprogramada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Clínica Sudamericano. Todos los derechos reservados.</p>
+            <p>Tu salud es nuestra prioridad</p>
+        </div>
+    </footer>
+
+    <script src="2.js"></script>
+</body>
+</html>
