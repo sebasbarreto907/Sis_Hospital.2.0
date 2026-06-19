@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactos - Clínica Sudamericano</title>
     <link rel="stylesheet" href="contactos.css">
+    <style>
+        /* Estilos básicos para el contenedor y la imagen del mapa */
+        .map-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .map-placeholder {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .map-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
     <header class="navbar">
@@ -78,7 +101,8 @@
                     <h2>Encuéntranos fácilmente</h2>
                     <p>Usa nuestro mapa para ubicar la clínica y encontrar la mejor ruta desde tu casa.</p>
                 </div>
-                <div class="map-placeholder">Mapa aquí</div>
+                <div class="map-placeholder">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32695.12514829597!2d-79.014658174911!3d-2.8988895211808487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd18095fc7e881%3A0xafd08fd090de6ff7!2sCuenca!5e0!3m2!1ses-419!2sec!4v1781883629174!5m2!1ses-419!2sec" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
     </main>
